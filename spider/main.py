@@ -49,7 +49,7 @@ def third_spider(args):
         spider.init_task()
 
 
-def example_task(args):
+def example_get_pid(args):
     """
     通过公司名称到爱企查列表页查询pid
     :param args:
@@ -93,12 +93,12 @@ if __name__ == "__main__":
     )
 
     parser.add_argument(
-        "--example_task",
+        "--example_get_pid",
         type=int,
         nargs=1,
         help="获取公司pid",
         choices=[1, 2, 3],
-        function=example_task,
+        function=example_get_pid,
     )
 
     parser.start()
