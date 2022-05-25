@@ -4,6 +4,18 @@
 
 ## 数据库设计
 
+```
+CREATE TABLE `test_temp` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8mb4_croatian_ci DEFAULT NULL,
+  `pid_state` tinyint(4) NOT NULL DEFAULT '0' COMMENT '0 待抓取，1抓取完毕，2抓取中，-1抓取失败',
+  `pid` varchar(255) COLLATE utf8mb4_croatian_ci DEFAULT NULL,
+  `content_state` tinyint(4) NOT NULL DEFAULT '0',
+  `content` varchar(255) COLLATE utf8mb4_croatian_ci DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1441 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_croatian_ci;
+```
+
 ## 爬虫逻辑
 
 ## 项目架构

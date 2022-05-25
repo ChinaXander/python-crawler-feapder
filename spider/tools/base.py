@@ -30,6 +30,7 @@ def download(url, path=None, file_name=None, headers=None, proxies=None):
     :param url: 图片网络地址
     :return:{'file_name': file_name, 'oss_path': oss_path}
     """
+    # 生成路径
     if path:
         path = os.getcwd() + '/download/' + path
     else:
@@ -37,7 +38,7 @@ def download(url, path=None, file_name=None, headers=None, proxies=None):
 
     mkdir(path)
 
-    # 文件名称
+    # 生成文件名称
     suf = None
     if not file_name:
         file_name = hashlib.sha1(url.encode('utf-8')).hexdigest()  # 生成文件名称
@@ -50,6 +51,7 @@ def download(url, path=None, file_name=None, headers=None, proxies=None):
     # 文件本地地址
     file_path = path + file_name
 
+    # 下载
     if not download_file(url, file_path):
         try:
             response = requests.get(url, headers=headers, proxies=proxies).content
@@ -60,6 +62,7 @@ def download(url, path=None, file_name=None, headers=None, proxies=None):
             log.warning(f"文件下载失败[{url}]>>>{e}")
             return False
 
+    # 生成后缀
     if not suf:
         filet = filetype.guess('download/447d4c95612fa46ad793f5f2d26ac1dfad0c6e3dpng')
         new_file_name = f"{file_name}.{filet.extension}"

@@ -8,6 +8,10 @@
 
 #### 包
 
+`pip install feapder==1.7.4`
+
+`pip install webdriver-manager==3.5.4`
+
 `pip install filetype`
 
 #### feader常用命令
